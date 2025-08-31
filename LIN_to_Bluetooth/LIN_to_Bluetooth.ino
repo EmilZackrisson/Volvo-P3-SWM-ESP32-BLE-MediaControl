@@ -27,7 +27,7 @@ bool prevPrevPressed = false;
 bool prevPlayPressed = false;
 bool prevPausePressed = false;
 
-// Rate-limit not connected
+// Rate-limit the not connected message
 unsigned long lastNotConnectedMsg = 0;
 
 // ===== Helper Functions =====
@@ -114,15 +114,6 @@ void print_not_connected() {
   if ((now - lastNotConnectedMsg) > 5000) {
     Serial.println("BLE Not connected...");
     lastNotConnectedMsg = now;
-  }
-}
-
-void led_blink(int times) {
-  for (int i = 0; i < times; i++) {
-    digitalWrite(LED, HIGH);
-    delay(100);
-    digitalWrite(LED, LOW);
-    delay(100);
   }
 }
 
